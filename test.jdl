@@ -1,0 +1,26 @@
+filter *
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
+
+entity AlloyHttp {
+	@Id id Long
+	/** Job Name */
+	name String maxlength(200) required
+	/** 監控的URL */
+	address String maxlength(2048) required
+	/** 監控方式的設定檔 */
+	modul String maxlength(20) required
+	/** 自定義欄位，方便後續業務邏輯 */
+	api String maxlength(20)
+	/** 自定義欄位，方便後續業務邏輯 */
+	env String maxlength(20)
+	/** 自定義欄位，方便後續業務邏輯 */
+	hostname String maxlength(2048)
+	/** 建立日 */
+	createTime Instant required
+	/** 更新日 */
+	updateTime Instant
+}
+
+
