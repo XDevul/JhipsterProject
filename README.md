@@ -1,3 +1,11 @@
+# 環境配置
+java 17
+前端 Vue
+
+# 學習項目
+Security
+
+
 # jhipsterTest
 
 This application was generated using JHipster 8.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.6.0](https://www.jhipster.tech/documentation-archive/v8.6.0).
