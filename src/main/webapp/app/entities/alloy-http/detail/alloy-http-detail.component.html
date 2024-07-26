@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (alloyHttp()) {
+      <div>
+        <h2 data-cy="alloyHttpDetailsHeading"><span jhiTranslate="jhipsterTestApp.alloyHttp.detail.title">Alloy Http</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="jhipsterTestApp.alloyHttp.id">Id</span></dt>
+          <dd>
+            <span>{{ alloyHttp()!.id }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.name' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.name">Name</span>
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.name }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.address' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.address"
+              >Address</span
+            >
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.address }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.modul' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.modul"
+              >Modul</span
+            >
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.modul }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.api' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.api">Api</span>
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.api }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.env' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.env">Env</span>
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.env }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.hostname' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.hostname"
+              >Hostname</span
+            >
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.hostname }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.createTime' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.createTime"
+              >Create Time</span
+            >
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.createTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.updateTime' | translate" jhiTranslate="jhipsterTestApp.alloyHttp.updateTime"
+              >Update Time</span
+            >
+          </dt>
+          <dd>
+            <span>{{ alloyHttp()!.updateTime | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">返回</span>
+        </button>
+
+        <button type="button" [routerLink]="['/alloy-http', alloyHttp()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">編輯</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

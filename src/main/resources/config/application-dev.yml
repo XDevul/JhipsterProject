@@ -34,7 +34,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/jhipsterTest
     username: jhipsterTest
-    password:
+    password: 1qaz@WSX
     hikari:
       poolName: Hikari
       auto-commit: false

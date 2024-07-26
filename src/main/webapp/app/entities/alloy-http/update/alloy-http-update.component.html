@@ -1,0 +1,224 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-alloy-http-heading"
+        data-cy="AlloyHttpCreateUpdateHeading"
+        jhiTranslate="jhipsterTestApp.alloyHttp.home.createOrEditLabel"
+      >
+        建立或編輯 Alloy Http
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="jhipsterTestApp.alloyHttp.id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_name"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.name' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.name"
+            >Name</label
+          >
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          @if (editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)) {
+            <div>
+              @if (editForm.get('name')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">此欄位必須填寫。</small>
+              }
+              @if (editForm.get('name')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '200' }"
+                  >此欄位不能超過 200 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_address"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.address' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.address"
+            >Address</label
+          >
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+          @if (editForm.get('address')!.invalid && (editForm.get('address')!.dirty || editForm.get('address')!.touched)) {
+            <div>
+              @if (editForm.get('address')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">此欄位必須填寫。</small>
+              }
+              @if (editForm.get('address')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '2048' }"
+                  >此欄位不能超過 2048 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_modul"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.modul' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.modul"
+            >Modul</label
+          >
+          <input type="text" class="form-control" name="modul" id="field_modul" data-cy="modul" formControlName="modul" />
+          @if (editForm.get('modul')!.invalid && (editForm.get('modul')!.dirty || editForm.get('modul')!.touched)) {
+            <div>
+              @if (editForm.get('modul')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">此欄位必須填寫。</small>
+              }
+              @if (editForm.get('modul')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >此欄位不能超過 20 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_api"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.api' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.api"
+            >Api</label
+          >
+          <input type="text" class="form-control" name="api" id="field_api" data-cy="api" formControlName="api" />
+          @if (editForm.get('api')!.invalid && (editForm.get('api')!.dirty || editForm.get('api')!.touched)) {
+            <div>
+              @if (editForm.get('api')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >此欄位不能超過 20 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_env"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.env' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.env"
+            >Env</label
+          >
+          <input type="text" class="form-control" name="env" id="field_env" data-cy="env" formControlName="env" />
+          @if (editForm.get('env')!.invalid && (editForm.get('env')!.dirty || editForm.get('env')!.touched)) {
+            <div>
+              @if (editForm.get('env')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >此欄位不能超過 20 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_hostname"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.hostname' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.hostname"
+            >Hostname</label
+          >
+          <input type="text" class="form-control" name="hostname" id="field_hostname" data-cy="hostname" formControlName="hostname" />
+          @if (editForm.get('hostname')!.invalid && (editForm.get('hostname')!.dirty || editForm.get('hostname')!.touched)) {
+            <div>
+              @if (editForm.get('hostname')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '2048' }"
+                  >此欄位不能超過 2048 個字元。</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_createTime"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.createTime' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.createTime"
+            >Create Time</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_createTime"
+              data-cy="createTime"
+              type="datetime-local"
+              class="form-control"
+              name="createTime"
+              formControlName="createTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (editForm.get('createTime')!.invalid && (editForm.get('createTime')!.dirty || editForm.get('createTime')!.touched)) {
+            <div>
+              @if (editForm.get('createTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">此欄位必須填寫。</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('createTime')?.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >此欄位應為日期和時間。</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_updateTime"
+            [ngbTooltip]="'jhipsterTestApp.alloyHttp.help.updateTime' | translate"
+            jhiTranslate="jhipsterTestApp.alloyHttp.updateTime"
+            >Update Time</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_updateTime"
+              data-cy="updateTime"
+              type="datetime-local"
+              class="form-control"
+              name="updateTime"
+              formControlName="updateTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">取消</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">儲存</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

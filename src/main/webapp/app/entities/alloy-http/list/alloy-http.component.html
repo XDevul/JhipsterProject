@@ -1,0 +1,163 @@
+<div>
+  <h2 id="page-heading" data-cy="AlloyHttpHeading">
+    <span jhiTranslate="jhipsterTestApp.alloyHttp.home.title">Alloy Https</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.alloyHttp.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-alloy-http"
+        [routerLink]="['/alloy-http/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.alloyHttp.home.createLabel">建立一筆新的 Alloy Http</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  @if (alloyHttps?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="jhipsterTestApp.alloyHttp.home.notFound">No Alloy Https found</span>
+    </div>
+  }
+
+  @if (alloyHttps && alloyHttps.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="modul">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.modul">Modul</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="api">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.api">Api</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="env">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.env">Env</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hostname">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.hostname">Hostname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createTime">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.createTime">Create Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="updateTime">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterTestApp.alloyHttp.updateTime">Update Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (alloyHttp of alloyHttps; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/alloy-http', alloyHttp.id, 'view']">{{ alloyHttp.id }}</a>
+              </td>
+              <td>{{ alloyHttp.name }}</td>
+              <td>{{ alloyHttp.address }}</td>
+              <td>{{ alloyHttp.modul }}</td>
+              <td>{{ alloyHttp.api }}</td>
+              <td>{{ alloyHttp.env }}</td>
+              <td>{{ alloyHttp.hostname }}</td>
+              <td>{{ alloyHttp.createTime | formatMediumDatetime }}</td>
+              <td>{{ alloyHttp.updateTime | formatMediumDatetime }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/alloy-http', alloyHttp.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">檢視</span>
+                  </a>
+
+                  <a [routerLink]="['/alloy-http', alloyHttp.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">編輯</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(alloyHttp)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">刪除</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (alloyHttps && alloyHttps.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

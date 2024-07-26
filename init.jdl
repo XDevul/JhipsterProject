@@ -1,0 +1,31 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName jhipsterTest
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angular
+    clientTheme none
+    creationTimestamp 1721973446680
+    databaseType sql
+    devDatabaseType postgresql
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhipsterVersion "8.6.0"
+    jwtSecretKey "NmY3YjkxZmUyNzcxMDA5OGEyMjk5ZTg3MjQ3MmZjODkyMDkxNTkzMjcwZTc0YjM5M2FmMmYzZDIzYTg3ZDk1MDQ4NTY0NjJiNDQxYjNmZTY3M2I3M2M5NzUzY2IwMzdhYmI1OWNhNjI2MDdmMDY1NmU2MmZjMzAwNWNhZjU1NjI="
+    languages [zh-tw]
+    messageBroker false
+    microfrontends []
+    nativeLanguage zh-tw
+    packageName com.jhipster.test
+    prodDatabaseType postgresql
+    reactive false
+    searchEngine false
+    serviceDiscoveryType false
+    testFrameworks []
+    websocket false
+    withAdminUi true
+  }
+}

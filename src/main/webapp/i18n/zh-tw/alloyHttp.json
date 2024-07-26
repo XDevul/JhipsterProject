@@ -1,0 +1,41 @@
+{
+  "jhipsterTestApp": {
+    "alloyHttp": {
+      "home": {
+        "title": "Alloy Https",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Alloy Http",
+        "createOrEditLabel": "建立或編輯 Alloy Http",
+        "notFound": "No Alloy Https found"
+      },
+      "created": "新的 Alloy Http 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Alloy Http 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Alloy Http 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Alloy Http {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Alloy Http"
+      },
+      "id": "Id",
+      "name": "Name",
+      "address": "Address",
+      "modul": "Modul",
+      "api": "Api",
+      "env": "Env",
+      "hostname": "Hostname",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "help": {
+        "name": "Job Name",
+        "address": "監控的URL",
+        "modul": "監控方式的設定檔",
+        "api": "自定義欄位，方便後續業務邏輯",
+        "env": "自定義欄位，方便後續業務邏輯",
+        "hostname": "自定義欄位，方便後續業務邏輯",
+        "createTime": "建立日",
+        "updateTime": "更新日"
+      }
+    }
+  }
+}
